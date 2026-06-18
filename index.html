@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Thomas Fairyland - Donghua Liu's research and photography portfolio." />
+    <meta name="theme-color" content="#f2f0e9" />
+    <title>Thomas Fairyland | 刘东华</title>
+    <link rel="icon" href="./assets/photos/000006.webp" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="loader" aria-hidden="true">
+      <div class="loader-mark"><span>THOMAS</span><span>FAIRYLAND</span></div>
+      <div class="loader-line"></div>
+    </div>
+
+    <div class="cursor" aria-hidden="true"><span></span></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="wordmark magnetic" href="#top" aria-label="Thomas Fairyland home">
+        <span>TF</span><i></i>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#research" data-i18n="navResearch">研究</a>
+        <a href="#photography" data-i18n="navPhotography">摄影</a>
+        <a href="#about" data-i18n="navAbout">关于</a>
+      </nav>
+      <button class="language-toggle magnetic" type="button" aria-label="Switch language">
+        <span class="active">中</span><span>/</span><span>EN</span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-image" src="./assets/photos/000006.webp" alt="春日校园中的塔与盛开的白花" />
+        <div class="hero-shade"></div>
+        <div class="hero-grid">
+          <div class="hero-kicker reveal" data-i18n="heroKicker">研究者 · 摄影者</div>
+          <h1 id="hero-title" class="hero-title" aria-label="Thomas Fairyland">
+            <span class="title-line"><i>Thomas</i></span>
+            <span class="title-line title-line-indent"><i>Fairyland</i></span>
+          </h1>
+          <p class="hero-intro reveal" data-i18n="heroIntro">
+            在数据、材料与光影之间，记录可被验证的发现，以及无法重复的瞬间。
+          </p>
+          <div class="hero-signature reveal">
+            <span>刘东华</span><span>Donghua Liu</span>
+          </div>
+        </div>
+        <a class="next-section magnetic" href="#research" aria-label="Go to research">
+          <span>01</span><i></i>
+        </a>
+      </section>
+
+      <section id="research" class="section research-section">
+        <div class="section-heading reveal">
+          <p class="section-index">01 / RESEARCH</p>
+          <h2 data-i18n="researchTitle">研究与发表</h2>
+          <p data-i18n="researchLead">材料信息学、分子描述符与能源材料研究。</p>
+        </div>
+        <div class="research-toolbar reveal" role="group" aria-label="Publication filters">
+          <button class="filter active" type="button" data-filter="all" data-i18n="filterAll">全部</button>
+          <button class="filter" type="button" data-filter="2026">2026</button>
+          <button class="filter" type="button" data-filter="2025">2025</button>
+          <button class="filter" type="button" data-filter="2024">2024</button>
+        </div>
+        <div id="publication-list" class="publication-list" aria-live="polite"></div>
+      </section>
+
+      <section id="photography" class="section photography-section">
+        <div class="section-heading light reveal">
+          <p class="section-index">02 / PHOTOGRAPHY</p>
+          <h2 data-i18n="photoTitle">光经过的地方</h2>
+          <p data-i18n="photoLead">第七卷 · 春日的建筑、植物与偶然相遇。</p>
+        </div>
+        <div id="gallery" class="gallery"></div>
+      </section>
+
+      <section id="about" class="section about-section">
+        <div class="about-name reveal">
+          <span>Donghua Liu</span>
+          <span>刘东华</span>
+        </div>
+        <div class="about-copy reveal">
+          <p class="section-index">03 / ABOUT</p>
+          <h2 data-i18n="aboutTitle">理性地研究，感性地观看。</h2>
+          <p data-i18n="aboutBody">
+            我关注计算方法如何帮助我们理解材料，也通过摄影保存日常环境中短暂而具体的光线。这里汇集我的研究工作与个人影像。
+          </p>
+          <a class="text-link magnetic" href="https://github.com/liudonghua701-crypto" target="_blank" rel="noreferrer">
+            <span>GitHub</span><b aria-hidden="true">↗</b>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> THOMAS FAIRYLAND</p>
+      <p data-i18n="footerLine">Research × Photography</p>
+      <a href="#top" class="magnetic" data-i18n="backTop">返回顶部 ↑</a>
+    </footer>
+
+    <dialog class="lightbox" aria-label="Photography viewer">
+      <button class="lightbox-close magnetic" type="button" aria-label="Close">×</button>
+      <button class="lightbox-nav previous magnetic" type="button" aria-label="Previous">←</button>
+      <figure>
+        <img alt="" />
+        <figcaption><span></span><i></i></figcaption>
+      </figure>
+      <button class="lightbox-nav next magnetic" type="button" aria-label="Next">→</button>
+    </dialog>
+
+    <script src="./content.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
