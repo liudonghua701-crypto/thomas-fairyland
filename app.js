@@ -1,8 +1,9 @@
 (() => {
-  const state = { language: "zh", filter: "all", lightboxIndex: 0 };
+  const state = { language: "zh", filter: "all", photoMode: "film", camera: "all", film: "all", lightboxIndex: 0, visiblePhotos: [] };
   const root = document.documentElement;
   const publicationList = document.querySelector("#publication-list");
   const gallery = document.querySelector("#gallery");
+  const photoFilters = document.querySelector("#photo-filters");
   const lightbox = document.querySelector(".lightbox");
 
   function renderPublications() {
@@ -26,13 +27,43 @@
     bindMagnetic();
   }
 
+  function uniqueValues(items, key) {
+    return [...new Set(items.map((item) => item[key]).filter(Boolean))];
+  }
+
+  function renderPhotoFilters() {
+    const modePhotos = PHOTOS.filter((photo) => photo.type === state.photoMode);
+    const cameras = uniqueValues(modePhotos, "camera");
+    const films = uniqueValues(modePhotos, "film");
+    const dictionary = I18N[state.language];
+    const button = (kind, value, label, active) => `<button class="photo-filter ${active ? "active" : ""}" type="button" data-photo-filter="${kind}" data-value="${value}">${label}</button>`;
+
+    photoFilters.innerHTML = `
+      <div class="photo-filter-group">
+        <span>${dictionary.cameraLabel}</span>
+        ${button("camera", "all", dictionary.filterAll, state.camera === "all")}
+        ${cameras.map((camera) => button("camera", camera, camera, state.camera === camera)).join("")}
+      </div>
+      ${state.photoMode === "film" ? `<div class="photo-filter-group">
+        <span>${dictionary.filmLabel}</span>
+        ${button("film", "all", dictionary.filterAll, state.film === "all")}
+        ${films.map((film) => button("film", film, film, state.film === film)).join("")}
+      </div>` : ""}`;
+  }
+
   function renderGallery() {
-    gallery.innerHTML = PHOTOS.map((photo, index) => `
-      <button class="gallery-item ${photo.orientation} ${photo.featured ? "featured" : ""} reveal" type="button" data-index="${index}" aria-label="${photo[state.language]}">
+    state.visiblePhotos = PHOTOS.filter((photo) => photo.type === state.photoMode && (state.camera === "all" || photo.camera === state.camera) && (state.film === "all" || photo.film === state.film));
+    renderPhotoFilters();
+    if (!state.visiblePhotos.length) {
+      gallery.innerHTML = `<p class="gallery-empty">${I18N[state.language].photoEmpty}</p>`;
+      return;
+    }
+    gallery.innerHTML = state.visiblePhotos.map((photo, index) => `
+      <button class="gallery-item ${photo.orientation} ${photo.featured ? "featured" : ""} reveal" type="button" data-index="${index}" aria-label="${I18N[state.language][photo.type === "film" ? "photoTypeFilm" : "photoTypeDigital"]} ${index + 1}">
         <span class="image-wrap">
-          <img src="./assets/photos/${photo.file}" alt="${photo[state.language]}" loading="${index < 2 ? "eager" : "lazy"}" />
+          <img src="./assets/photos/${photo.file}" alt="${I18N[state.language][photo.type === "film" ? "photoTypeFilm" : "photoTypeDigital"]} ${index + 1}" loading="${index < 2 ? "eager" : "lazy"}" />
         </span>
-        <span class="gallery-caption"><i>${String(index + 1).padStart(2, "0")}</i><b>${photo[state.language]}</b></span>
+        <span class="gallery-caption"><i>${String(index + 1).padStart(2, "0")}</i><b>${photo.camera}${photo.film ? ` · ${photo.film}` : ""}</b></span>
       </button>`).join("");
     gallery.querySelectorAll(".gallery-item").forEach((item) => item.addEventListener("click", () => openLightbox(Number(item.dataset.index))));
     observeReveals();
@@ -53,12 +84,12 @@
   }
 
   function updateLightbox() {
-    const photo = PHOTOS[state.lightboxIndex];
+    const photo = state.visiblePhotos[state.lightboxIndex];
     const image = lightbox.querySelector("img");
     image.src = `./assets/photos/${photo.file}`;
-    image.alt = photo[state.language];
-    lightbox.querySelector("figcaption span").textContent = photo[state.language];
-    lightbox.querySelector("figcaption i").textContent = `${state.lightboxIndex + 1} / ${PHOTOS.length}`;
+    image.alt = `${I18N[state.language][photo.type === "film" ? "photoTypeFilm" : "photoTypeDigital"]} ${state.lightboxIndex + 1}`;
+    lightbox.querySelector("figcaption span").textContent = `${photo.camera}${photo.film ? ` · ${photo.film}` : ""}`;
+    lightbox.querySelector("figcaption i").textContent = `${state.lightboxIndex + 1} / ${state.visiblePhotos.length}`;
   }
 
   function openLightbox(index) {
@@ -69,7 +100,7 @@
   }
 
   function moveLightbox(direction) {
-    state.lightboxIndex = (state.lightboxIndex + direction + PHOTOS.length) % PHOTOS.length;
+    state.lightboxIndex = (state.lightboxIndex + direction + state.visiblePhotos.length) % state.visiblePhotos.length;
     updateLightbox();
   }
 
@@ -106,6 +137,21 @@
     document.querySelectorAll(".filter").forEach((item) => item.classList.toggle("active", item === button));
     renderPublications();
   }));
+
+  document.querySelectorAll(".photo-mode-button").forEach((button) => button.addEventListener("click", () => {
+    state.photoMode = button.dataset.photoMode;
+    state.camera = "all";
+    state.film = "all";
+    document.querySelectorAll(".photo-mode-button").forEach((item) => item.classList.toggle("active", item === button));
+    renderGallery();
+  }));
+
+  photoFilters.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-photo-filter]");
+    if (!button) return;
+    state[button.dataset.photoFilter] = button.dataset.value;
+    renderGallery();
+  });
 
   lightbox.querySelector(".lightbox-close").addEventListener("click", () => lightbox.close());
   lightbox.querySelector(".previous").addEventListener("click", () => moveLightbox(-1));

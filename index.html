@@ -34,7 +34,7 @@
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <img class="hero-image" src="./assets/photos/000006.webp" alt="春日校园中的塔与盛开的白花" />
+        <img class="hero-image" src="./assets/hero.webp" alt="蓝色调插画中的两个人物" />
         <div class="hero-shade"></div>
         <div class="hero-grid">
           <div class="hero-kicker reveal" data-i18n="heroKicker">研究者 · 摄影者</div>
@@ -72,8 +72,15 @@
       <section id="photography" class="section photography-section">
         <div class="section-heading light reveal">
           <p class="section-index">02 / PHOTOGRAPHY</p>
-          <h2 data-i18n="photoTitle">光经过的地方</h2>
-          <p data-i18n="photoLead">第七卷 · 春日的建筑、植物与偶然相遇。</p>
+          <h2 data-i18n="photoTitle">摄影作品</h2>
+          <p data-i18n="photoLead">按媒介、相机与胶卷分类浏览。</p>
+        </div>
+        <div class="photo-controls reveal">
+          <div class="photo-mode" role="group" aria-label="Photography medium">
+            <button class="photo-mode-button active" type="button" data-photo-mode="film" data-i18n="photoTypeFilm">胶片摄影</button>
+            <button class="photo-mode-button" type="button" data-photo-mode="digital" data-i18n="photoTypeDigital">数码摄影</button>
+          </div>
+          <div id="photo-filters" class="photo-filters"></div>
         </div>
         <div id="gallery" class="gallery"></div>
       </section>

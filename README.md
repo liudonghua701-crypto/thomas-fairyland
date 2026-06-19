@@ -17,7 +17,7 @@ Then open `http://localhost:4173`.
 All editable site content is in `content.js`:
 
 - Add or edit papers in `PUBLICATIONS`.
-- Add or edit gallery entries in `PHOTOS`.
+- Add or edit gallery entries in `PHOTOS`. Set `type` to `film` or `digital`, then provide `camera` and, for film work, `film`. Filter controls are generated automatically from these values.
 - Change bilingual interface copy in `I18N`.
 
 Place optimized WebP photos in `assets/photos/`, then add the filename to `PHOTOS`. Keep individual images below 1 MB when possible and use a longest edge of about 1600-2000 pixels.
