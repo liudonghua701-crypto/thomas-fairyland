@@ -7,6 +7,7 @@
   const photoFilters = document.querySelector("#photo-filters");
   const lightbox = document.querySelector(".lightbox");
   const contactLink = document.querySelector("#contact-link");
+  const educationList = document.querySelector("#education-list");
 
   contactLink.href = `mailto:${SITE.contactEmail}`;
   document.querySelector("#contact-email").textContent = SITE.contactEmail;
@@ -30,6 +31,18 @@
     }).join("");
     observeReveals();
     bindMagnetic();
+  }
+
+  function renderEducation() {
+    educationList.innerHTML = EDUCATION.map((item) => `
+      <li class="education-item">
+        <time>${item.period[state.language]}</time>
+        <div>
+          <h3>${item.institution[state.language]}</h3>
+          <p>${item.program[state.language]}</p>
+          <p class="education-advisor">${I18N[state.language].advisorLabel} · ${item.advisor[state.language]}</p>
+        </div>
+      </li>`).join("");
   }
 
   function uniqueValues(items, key) {
@@ -85,6 +98,7 @@
     });
     renderGallery();
     renderPublications();
+    renderEducation();
     if (lightbox.open) updateLightbox();
   }
 
@@ -203,6 +217,7 @@
   document.querySelector("#year").textContent = new Date().getFullYear();
   renderPublications();
   renderGallery();
+  renderEducation();
   observeReveals();
   bindMagnetic();
   window.addEventListener("load", () => setTimeout(() => document.body.classList.add("loaded"), 350));

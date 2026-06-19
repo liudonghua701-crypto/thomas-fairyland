@@ -38,27 +38,32 @@ const SITE = {
 
 只替换引号中的邮箱。保存后，网页中的邮箱文字和邮件链接会同时更新。
 
-## 四、填写自我介绍
+## 四、修改研究方向与教育经历
 
-在 `content.js` 的 `I18N` 中分别找到中文和英文的 `introduction`：
+在 `content.js` 的 `I18N` 中分别修改中英文研究方向：
 
 ```js
 zh: {
-  introduction: "这里填写中文简介",
+  researchFocus: "中文研究方向",
 },
 
 en: {
-  introduction: "Write the English introduction here.",
+  researchFocus: "Research focus in English",
 },
 ```
 
-当前值为空字符串 `""`，所以网站只显示联系方式。需要换行时使用 `\n`：
+教育经历保存在 `const EDUCATION = [` 数组中。每一对 `{ ... }` 代表一段经历：
 
 ```js
-introduction: "第一段。\n第二段。",
+{
+  period: { zh: "2025 年 9 月至今", en: "Sep 2025 - Present" },
+  institution: { zh: "中文院校", en: "Institution in English" },
+  program: { zh: "中文专业与学位", en: "Program and degree in English" },
+  advisor: { zh: "导师中文名", en: "Advisor in English" }
+},
 ```
 
-注意保留逗号、双引号和冒号。中文引号内容中不要再直接使用英文双引号；如必须使用，请写成 `\"`。
+增加经历时复制一整条记录，并保留字段之间的逗号。数组中越靠前的经历会越先显示。
 
 ## 五、增加论文
 

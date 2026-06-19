@@ -25,7 +25,10 @@ const I18N = {
     filmLabel: "胶卷",
     photoEmpty: "此分类暂未收录作品。",
     aboutTitle: "自我介绍",
-    introduction: "",
+    researchFocusLabel: "学习 / 研究方向",
+    researchFocus: "关联电子材料的中子散射及输运特性",
+    educationLabel: "教育经历",
+    advisorLabel: "导师",
     contactLabel: "联系方式",
     footerLine: "研究 × 摄影",
     backTop: "返回顶部 ↑",
@@ -48,7 +51,10 @@ const I18N = {
     filmLabel: "Film stock",
     photoEmpty: "No work has been added to this category yet.",
     aboutTitle: "Introduction",
-    introduction: "",
+    researchFocusLabel: "Research Focus",
+    researchFocus: "Neutron scattering and transport properties of correlated-electron materials",
+    educationLabel: "Education",
+    advisorLabel: "Advisor",
     contactLabel: "Contact",
     footerLine: "Research × Photography",
     backTop: "Back to top ↑",
@@ -56,6 +62,21 @@ const I18N = {
     authorSuffix: " et al."
   }
 };
+
+const EDUCATION = [
+  {
+    period: { zh: "2025 年 9 月至今", en: "Sep 2025 - Present" },
+    institution: { zh: "中国科学院物理研究所", en: "Institute of Physics, Chinese Academy of Sciences" },
+    program: { zh: "凝聚态物理专业 · 硕博连读研究生", en: "Condensed Matter Physics · Integrated M.S.-Ph.D. Program" },
+    advisor: { zh: "罗会仟", en: "Huiqian Luo" }
+  },
+  {
+    period: { zh: "2020 年 9 月至 2024 年 7 月", en: "Sep 2020 - Jul 2024" },
+    institution: { zh: "中山大学材料科学与工程学院", en: "School of Materials Science and Engineering, Sun Yat-sen University" },
+    program: { zh: "材料物理专业 · 理学学士", en: "Materials Physics · Bachelor of Science" },
+    advisor: { zh: "周业成", en: "Yecheng Zhou" }
+  }
+];
 
 const PUBLICATIONS = [
   {

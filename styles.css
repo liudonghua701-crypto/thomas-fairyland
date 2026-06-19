@@ -241,7 +241,18 @@ nav a:hover::after { transform: scaleX(1); transform-origin: left; }
 .about-name span { display: block; }
 .about-name span:last-child { margin-top: 2rem; color: var(--red); }
 .about-copy { max-width: 650px; }
-.introduction { min-height: clamp(6rem, 13vw, 12rem); margin: 2rem 0; white-space: pre-line; font-size: clamp(1rem, 1.35vw, 1.3rem); }
+.introduction { margin: 2rem 0 clamp(3rem, 6vw, 5rem); }
+.profile-block { padding: 1.4rem 0 2rem; border-top: 1px solid rgba(21,21,21,.35); }
+.profile-label { margin: 0 0 1.2rem; font-size: .68rem; font-weight: 700; text-transform: uppercase; }
+.research-focus { max-width: 32rem; margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(1.55rem, 2.6vw, 2.5rem); line-height: 1.12; }
+.education-block { padding-bottom: 0; }
+.education-list { margin: 0; padding: 0; list-style: none; }
+.education-item { display: grid; grid-template-columns: minmax(8rem, .8fr) 2fr; gap: 1.4rem; padding: 1.5rem 0; border-top: 1px solid rgba(21,21,21,.22); }
+.education-item:first-child { border-top: 0; }
+.education-item time { color: var(--red); font-size: .72rem; }
+.education-item h3 { margin: 0 0 .45rem; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(1.1rem, 1.65vw, 1.45rem); font-weight: 400; line-height: 1.2; }
+.education-item p { margin: .25rem 0; font-size: .76rem; }
+.education-advisor { opacity: .62; }
 .contact-label { margin: 0; font-size: .68rem; font-weight: 700; text-transform: uppercase; }
 .text-link { display: inline-flex; align-items: center; gap: 2rem; margin-top: 2.5rem; padding-bottom: .6rem; border-bottom: 1px solid currentColor; transition: transform 180ms; }
 .text-link b { font-size: 1.3rem; font-weight: 400; }
@@ -302,6 +313,7 @@ footer { display: flex; justify-content: space-between; gap: 2rem; align-items: 
   .gallery-caption { align-items: flex-start; gap: .5rem; }
   .about-section { grid-template-columns: 1fr; gap: 5rem; }
   .about-name { font-size: clamp(3.2rem, 17vw, 6rem); }
+  .education-item { grid-template-columns: 1fr; gap: .65rem; }
   footer { padding-bottom: 6rem; flex-wrap: wrap; }
   footer p:nth-child(2) { display: none; }
   .lightbox { padding: 4.5rem 1rem 1rem; }
