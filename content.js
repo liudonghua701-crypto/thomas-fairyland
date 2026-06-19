@@ -73,7 +73,7 @@ const EDUCATION = [
     advisor: { zh: "罗会仟", en: "Huiqian Luo" }
   },
   {
-    period: { zh: "2020 年 9 月至 2024 年 7 月", en: "Sep 2020 - Jul 2024" },
+    period: { zh: "2021 年 9 月至 2025 年 6 月", en: "Sep 2020 - Jul 2024" },
     institution: { zh: "中山大学材料科学与工程学院", en: "School of Materials Science and Engineering, Sun Yat-sen University" },
     program: { zh: "材料物理专业 · 理学学士", en: "Materials Physics · Bachelor of Science" },
     advisor: { zh: "周业成", en: "Yecheng Zhou" },
