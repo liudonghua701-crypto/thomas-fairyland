@@ -2,6 +2,8 @@
 
 A bilingual research and photography portfolio for Donghua Liu.
 
+For step-by-step editing, preview, and publishing instructions, read [CONTENT_GUIDE.md](./CONTENT_GUIDE.md).
+
 ## Preview locally
 
 Run a static server in this directory:

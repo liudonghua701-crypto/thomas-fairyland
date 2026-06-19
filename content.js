@@ -4,6 +4,10 @@
  * Text shown in both languages lives in I18N.
  */
 
+const SITE = {
+  contactEmail: "liudh@iphy.ac.cn"
+};
+
 const I18N = {
   zh: {
     navResearch: "研究",
@@ -15,14 +19,14 @@ const I18N = {
     researchLead: "材料信息学、分子描述符与能源材料研究。",
     filterAll: "全部",
     photoTitle: "摄影作品",
-    photoLead: "按媒介、相机与胶卷分类浏览。",
     photoTypeFilm: "胶片摄影",
     photoTypeDigital: "数码摄影",
     cameraLabel: "相机",
     filmLabel: "胶卷",
     photoEmpty: "此分类暂未收录作品。",
-    aboutTitle: "理性地研究，感性地观看。",
-    aboutBody: "我关注计算方法如何帮助我们理解材料，也通过摄影保存日常环境中短暂而具体的光线。这里汇集我的研究工作与个人影像。",
+    aboutTitle: "自我介绍",
+    introduction: "",
+    contactLabel: "联系方式",
     footerLine: "研究 × 摄影",
     backTop: "返回顶部 ↑",
     doiLabel: "查看论文",
@@ -38,14 +42,14 @@ const I18N = {
     researchLead: "Materials informatics, molecular descriptors, and energy materials.",
     filterAll: "All",
     photoTitle: "Photography",
-    photoLead: "Browse by medium, camera, and film stock.",
     photoTypeFilm: "Film",
     photoTypeDigital: "Digital",
     cameraLabel: "Camera",
     filmLabel: "Film stock",
     photoEmpty: "No work has been added to this category yet.",
-    aboutTitle: "Research with reason. Observe with feeling.",
-    aboutBody: "I study how computational methods can help us understand materials, while photography lets me preserve brief, specific qualities of light in everyday surroundings. This space brings those two practices together.",
+    aboutTitle: "Introduction",
+    introduction: "",
+    contactLabel: "Contact",
     footerLine: "Research × Photography",
     backTop: "Back to top ↑",
     doiLabel: "View publication",

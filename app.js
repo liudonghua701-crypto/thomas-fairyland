@@ -1,10 +1,15 @@
 (() => {
+  document.body.classList.add("motion-ready");
   const state = { language: "zh", filter: "all", photoMode: "film", camera: "all", film: "all", lightboxIndex: 0, visiblePhotos: [] };
   const root = document.documentElement;
   const publicationList = document.querySelector("#publication-list");
   const gallery = document.querySelector("#gallery");
   const photoFilters = document.querySelector("#photo-filters");
   const lightbox = document.querySelector(".lightbox");
+  const contactLink = document.querySelector("#contact-link");
+
+  contactLink.href = `mailto:${SITE.contactEmail}`;
+  document.querySelector("#contact-email").textContent = SITE.contactEmail;
 
   function renderPublications() {
     const visible = PUBLICATIONS.filter((paper) => state.filter === "all" || String(paper.year) === state.filter);
@@ -111,12 +116,22 @@
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
 
   function observeReveals() {
     const pending = document.querySelectorAll(".reveal:not(.visible)");
     pending.forEach((item) => revealObserver.observe(item));
-    setTimeout(() => pending.forEach((item) => item.classList.add("visible")), 1400);
+    requestAnimationFrame(revealInViewport);
+  }
+
+  function revealInViewport() {
+    document.querySelectorAll(".reveal:not(.visible)").forEach((item) => {
+      const rect = item.getBoundingClientRect();
+      if (rect.top < innerHeight * 0.94 && rect.bottom > 0) {
+        item.classList.add("visible");
+        revealObserver.unobserve(item);
+      }
+    });
   }
 
   function bindMagnetic() {
@@ -179,6 +194,7 @@
       const progress = scrollY / (document.documentElement.scrollHeight - innerHeight);
       document.querySelector(".scroll-progress").style.transform = `scaleX(${progress})`;
       document.querySelector(".hero-image").style.transform = `translateY(${Math.min(scrollY * 0.14, 120)}px) scale(1.05)`;
+      revealInViewport();
       ticking = false;
     });
     ticking = true;
