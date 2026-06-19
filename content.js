@@ -29,6 +29,7 @@ const I18N = {
     researchFocus: "关联电子材料的中子散射及输运特性",
     educationLabel: "教育经历",
     advisorLabel: "导师",
+    thesisLabel: "本科毕业论文",
     contactLabel: "联系方式",
     footerLine: "研究 × 摄影",
     backTop: "返回顶部 ↑",
@@ -55,6 +56,7 @@ const I18N = {
     researchFocus: "Neutron scattering and transport properties of correlated-electron materials",
     educationLabel: "Education",
     advisorLabel: "Advisor",
+    thesisLabel: "Undergraduate Thesis",
     contactLabel: "Contact",
     footerLine: "Research × Photography",
     backTop: "Back to top ↑",
@@ -74,7 +76,14 @@ const EDUCATION = [
     period: { zh: "2020 年 9 月至 2024 年 7 月", en: "Sep 2020 - Jul 2024" },
     institution: { zh: "中山大学材料科学与工程学院", en: "School of Materials Science and Engineering, Sun Yat-sen University" },
     program: { zh: "材料物理专业 · 理学学士", en: "Materials Physics · Bachelor of Science" },
-    advisor: { zh: "周业成", en: "Yecheng Zhou" }
+    advisor: { zh: "周业成", en: "Yecheng Zhou" },
+    thesis: {
+      title: {
+        zh: "基于分子动力学与机器学习的有机半导体电子耦合研究",
+        en: "Electronic Coupling in Organic Semiconductors Based on Molecular Dynamics and Machine Learning"
+      },
+      url: "./assets/documents/undergraduate-thesis.pdf"
+    }
   }
 ];
 

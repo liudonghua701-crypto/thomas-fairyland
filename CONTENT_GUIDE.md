@@ -65,6 +65,21 @@ en: {
 
 增加经历时复制一整条记录，并保留字段之间的逗号。数组中越靠前的经历会越先显示。
 
+需要给某段经历附加学位论文时，先把 PDF 放进 `assets/documents/`，并在该经历中增加 `thesis`：
+
+```js
+advisor: { zh: "导师中文名", en: "Advisor in English" },
+thesis: {
+  title: {
+    zh: "中文论文题名",
+    en: "Thesis Title in English"
+  },
+  url: "./assets/documents/thesis-file.pdf"
+}
+```
+
+建议 PDF 文件名只使用小写英文字母、数字和连字符。网站会自动把论文题名显示为可点击链接，并在新标签页打开 PDF。
+
 ## 五、增加论文
 
 在 `content.js` 中找到 `const PUBLICATIONS = [`。每一对 `{ ... }` 代表一篇论文。

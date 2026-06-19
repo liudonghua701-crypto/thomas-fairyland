@@ -41,6 +41,11 @@
           <h3>${item.institution[state.language]}</h3>
           <p>${item.program[state.language]}</p>
           <p class="education-advisor">${I18N[state.language].advisorLabel} · ${item.advisor[state.language]}</p>
+          ${item.thesis ? `<a class="education-thesis" href="${item.thesis.url}" target="_blank" rel="noreferrer">
+            <span>${I18N[state.language].thesisLabel}</span>
+            <b>${item.thesis.title[state.language]}</b>
+            <i aria-hidden="true">↗</i>
+          </a>` : ""}
         </div>
       </li>`).join("");
   }
