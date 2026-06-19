@@ -10,8 +10,8 @@
   --font-display: "Bodoni MT", Didot, "Palatino Linotype", "Book Antiqua", serif;
   --font-body: "Palatino Linotype", "Book Antiqua", "Noto Sans SC", "Microsoft YaHei", sans-serif;
   --font-ui: "Avenir Next", "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
-  --font-zh: "Noto Sans SC", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;
-  --font-zh-display: "LXGW WenKai", KaiTi, STKaiti, "Microsoft YaHei", sans-serif;
+  --font-zh: "LXGW WenKai Screen", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+  --font-zh-display: "LXGW WenKai Screen", KaiTi, STKaiti, "Microsoft YaHei", sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -30,7 +30,7 @@ body {
   overflow-x: hidden;
 }
 
-html:lang(zh-CN) body { font-family: var(--font-zh); font-size: 17px; }
+html:lang(zh-CN) body { font-family: var(--font-zh); font-size: 17px; line-height: 1.62; }
 html:lang(zh-CN) .section-heading h2,
 html:lang(zh-CN) .photo-mode-button,
 html:lang(zh-CN) .research-focus,
