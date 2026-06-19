@@ -225,5 +225,5 @@
   renderEducation();
   observeReveals();
   bindMagnetic();
-  window.addEventListener("load", () => setTimeout(() => document.body.classList.add("loaded"), 350));
+  window.addEventListener("load", () => setTimeout(() => document.body.classList.add("loaded"), 1000));
 })();
